@@ -4,7 +4,8 @@
 # Project
 tmp/
 logs/
-.csv
+*.csv
+*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
