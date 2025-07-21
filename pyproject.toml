@@ -1,29 +1,24 @@
 [project]
-name = "project-name"  # Replace with your project name
+name = "smartthings-api-extractor"
 version = "0.1.0"
-description = "Project description"  # Replace with your project description
-authors = [
-    {name = "Your Name", email = "your.email@example.com"}  # Replace with your details
-]
-license = {text = "MIT"}
+description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10, <3.13"
+requires-python = ">=3.13"
 dependencies = [
+    "pandas>=2.3.1",
+    "requests>=2.32.4",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "pytest>=8.3.4",
-    "pytest-cov (>=6.1.1,<7.0.0)",
-    "ruff>=0.11.9",
+    "pytest>=8.4.1",
+    "pytest-cov (>=6.2.1,<7.0.0)",
+    "ruff>=0.12.4",
     "vulture (>=2.14,<3.0)",
     "ipykernel>=6.29.5",
     "ipython>=8.31.0",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
 
 # Ruff configuration (from ruff.toml)
 [tool.ruff]
@@ -57,7 +52,7 @@ exclude = [
 ]
 line-length = 79
 indent-width = 4
-target-version = "py312"  # Adjust to match your Python version requirement
+target-version = "py313"  # Adjust to match your Python version requirement
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
@@ -102,3 +97,4 @@ exclude_lines = [
     "raise AssertionError", 
     "raise NotImplementedError",
 ]
+

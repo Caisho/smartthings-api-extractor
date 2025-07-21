@@ -14,7 +14,8 @@
 		"mechatroner.rainbow-csv",
 		"ms-python.debugpy",
 		"monokai.theme-monokai-pro-vscode",
-		"ms-toolsai.jupyter-renderers",
+        "ms-toolsai.jupyter-renderers",
+        "postman.postman-for-vscode",
      ],
     "unwantedRecommendations": []
 }
