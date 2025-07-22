@@ -8,6 +8,7 @@ for a specific device and location, then parses it into a pandas DataFrame.
 
 import json
 import logging
+import os
 import time
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
@@ -15,6 +16,10 @@ import pytz
 
 import pandas as pd
 import requests
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(
@@ -378,12 +383,20 @@ class SmartThingsHistoryExtractor:
 
 
 def main():
-    """Main execution function."""
-    # Configuration
-    BEARER_TOKEN = "6197fae4-b728-49fa-8852-9d7996e8435d"
-    LOCATION_ID = "6457d2b6-a1b2-41ec-aec8-4a181e4545da"
-    DEVICE_ID = "02b737ab-cc5c-b886-5514-318be5747e36"
-    TIMEZONE = "Asia/Singapore"  # Default timezone
+    """Main execution function."""    
+    # Configuration from environment variables
+    BEARER_TOKEN = os.getenv("BEARER_TOKEN")
+    LOCATION_ID = os.getenv("LOCATION_ID")
+    DEVICE_ID = os.getenv("DEVICE_ID")
+    TIMEZONE = os.getenv("TIMEZONE", "Asia/Singapore")  # Default timezone
+
+    # Validate required environment variables
+    if not BEARER_TOKEN:
+        raise ValueError("BEARER_TOKEN environment variable is required")
+    if not LOCATION_ID:
+        raise ValueError("LOCATION_ID environment variable is required")
+    if not DEVICE_ID:
+        raise ValueError("DEVICE_ID environment variable is required")
 
     try:
         # Initialize extractor with timezone
