@@ -1,15 +1,43 @@
 [project]
 name = "smartthings-api-extractor"
 version = "0.1.0"
-description = "Add your description here"
+description = "Extract and analyze device history data from the SmartThings API with support for drying cycle analysis"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10"
+authors = [
+    {name = "SmartThings API Extractor Contributors"},
+]
+license = {text = "MIT"}
+keywords = ["smartthings", "api", "iot", "data-extraction", "home-automation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Home Automation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
 dependencies = [
     "pandas>=2.3.1",
     "requests>=2.32.4",
     "python-dotenv>=1.0.0",
     "pytz>=2023.3",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Caisho/smartthings-api-extractor"
+Repository = "https://github.com/Caisho/smartthings-api-extractor"
+Issues = "https://github.com/Caisho/smartthings-api-extractor/issues"
+
+[project.scripts]
+extract-smartthings-history = "scripts.extract_smartthings_history:main"
 
 [dependency-groups]
 dev = [
@@ -54,7 +82,7 @@ exclude = [
 ]
 line-length = 79
 indent-width = 4
-target-version = "py313"  # Adjust to match your Python version requirement
+target-version = "py310"  # Updated to match minimum Python requirement
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
